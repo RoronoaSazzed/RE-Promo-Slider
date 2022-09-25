@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>RE Promo</title>
+
+    <style>
+      :root {
+        --delay: 1.5s;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        list-style: none;
+      }
+
+      .parentDiv {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      .wrapper {
+        width: 100%;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      h3 {
+        font-weight: 400;
+        font-size: 20px;
+      }
+
+      h4 {
+        font-weight: 500;
+      }
+
+      .img-responsive {
+        max-width: 100%;
+      }
+
+      .img__section {
+        min-height: 100vh;
+        width: 100%;
+        position: absolute;
+      }
+
+      .first__image {
+        background-image: url(1.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transform: scale(0);
+        animation: scaleIn1 8s ease-out 0.5s infinite;
+      }
+
+      @keyframes scaleIn1 {
+        0% {
+          transform-origin: bottom right;
+          transform: scale(0);
+          opacity: 0;
+        }
+
+        10%,
+        38% {
+          transform-origin: bottom right;
+          transform: scale(1);
+          opacity: 1;
+        }
+
+        48%,
+        100% {
+          transform-origin: center left;
+          transform: scale(0);
+          opacity: 0;
+        }
+      }
+
+      .second__image {
+        background-image: url(2.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transform-origin: top right;
+        transform: scale(0);
+        opacity: 0;
+        animation: scaleIn2 8s ease-out 0.5s infinite;
+      }
+
+      @keyframes scaleIn2 {
+        0%,
+        48% {
+          transform-origin: top right;
+          transform: scale(0);
+          opacity: 0;
+        }
+
+        58%,
+        90% {
+          transform-origin: top right;
+          transform: scale(1);
+          opacity: 1;
+        }
+
+        100% {
+          transform-origin: bottom left;
+          transform: scale(0);
+          opacity: 0;
+        }
+      }
+
+      .room__type,
+      .details,
+      .personal__agent,
+      .price__address,
+      .web__address {
+        position: absolute;
+        display: inline-block;
+      }
+
+      .room__type {
+        top: 10%;
+        left: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .room__type h3 {
+        color: white;
+        font-weight: 400;
+        margin-left: 20px;
+        opacity: 0;
+        animation: fadeIn 1s ease-out calc(var(--delay) + 0.5s) forwards;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .icon__wrapper {
+        color: white;
+        color: #131313;
+        padding: 15px;
+        font-size: 35px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        overflow: hidden;
+        opacity: 0;
+        animation: fadeIn 1s ease-out calc(var(--delay)) forwards;
+      }
+
+      .bedroom {
+        opacity: 0;
+        animation: fadeInRight 0.5s ease-out calc(var(--delay)) forwards;
+      }
+
+      .details {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10%;
+        color: white;
+      }
+
+      .details h3 {
+        font-size: 35px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        opacity: 0;
+        transform: translate(-100px, 0%);
+        animation: fadeInRight 0.5s ease-out calc(var(--delay)) forwards;
+      }
+
+      @keyframes fadeInRight {
+        0% {
+          opacity: 0;
+          transform: translate(-100px, 0%);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translate(0%, 0%);
+        }
+      }
+
+      .details h4 {
+        font-size: 25px;
+        font-weight: 400;
+        opacity: 0;
+        transform: translate(100px, 0%);
+        animation: fadeInLeft 0.5s ease-out calc(var(--delay)) forwards;
+      }
+
+      @keyframes fadeInLeft {
+        0% {
+          opacity: 0;
+          transform: translate(100px, 0%);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translate(0%, 0%);
+        }
+      }
+
+      ul li {
+        font-weight: 200;
+        font-size: 20px;
+        margin: 5px 0;
+      }
+
+      ul li:nth-child(1) {
+        opacity: 0;
+        animation: fadeInBottom 0.5s ease-out calc(var(--delay) + 0.1s) forwards;
+      }
+
+      ul li:nth-child(2) {
+        opacity: 0;
+        animation: fadeInBottom 0.5s ease-out 0.2s calc(var(--delay) + 0.2s)
+          forwards;
+      }
+
+      ul li:nth-child(3) {
+        opacity: 0;
+        animation: fadeInBottom 0.5s ease-out calc(var(--delay) + 0.3s) forwards;
+      }
+
+      ul li:nth-child(4) {
+        opacity: 0;
+        animation: fadeInBottom 0.5s ease-out calc(var(--delay) + 0.4s) forwards;
+      }
+
+      ul li:nth-child(5) {
+        opacity: 0;
+        animation: fadeInBottom 0.5s ease-out calc(var(--delay) + 0.5s) forwards;
+      }
+
+      /* Personal Agent */
+
+      .personal__agent {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        bottom: 10%;
+        left: 10%;
+        opacity: 0;
+        transform: translate(-40%, 0%);
+        animation: agentBoxIn 0.5s ease-out calc(var(--delay)) forwards;
+      }
+
+      @keyframes agentBoxIn {
+        0% {
+          opacity: 0;
+          transform: translate(-40%, 0%);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translate(0%, 0%);
+        }
+      }
+
+      .pic__sec {
+        background-color: white;
+        border-radius: 15px;
+        display: grid;
+        place-items: center;
+        flex: 1;
+        opacity: 0;
+        opacity: 0;
+        transform: translate(-40%, 0%);
+        animation: agentBoxIn 0.5s ease-out calc(var(--delay) + 0.25s) forwards;
+      }
+
+      .agent__info {
+        flex: 2;
+        padding: 0px 15px;
+        margin-left: 15px;
+        color: white;
+        opacity: 0;
+        transform: translate(-40%, 0%);
+        animation: agentBoxIn 0.5s ease-out calc(var(--delay) + 0.5s) forwards;
+      }
+
+      .agent__pic {
+        width: 90px;
+      }
+
+      /* Price + Address */
+
+      .price__address {
+        bottom: 10%;
+        right: 10%;
+        color: white;
+      }
+
+      .price {
+        background-color: white;
+        padding: 5px 15px;
+        color: #131313;
+        font-size: 35px;
+        border-radius: 15px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 10px;
+        position: relative;
+        opacity: 0;
+        transform: translate(0%, 50%);
+        animation: fadeInTop 0.5s ease-out calc(var(--delay)) forwards;
+      }
+
+      @keyframes fadeInTop {
+        0% {
+          opacity: 0;
+          transform: translate(0%, 50%);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translate(0%, 0%);
+        }
+      }
+
+      .address {
+        letter-spacing: 2px;
+        font-weight: 300;
+        position: relative;
+        font-size: 20px;
+        opacity: 0;
+        transform: translate(0%, -50%);
+        animation: fadeInBottom 0.5s ease-out calc(var(--delay)) forwards;
+      }
+
+      @keyframes fadeInBottom {
+        0% {
+          opacity: 0;
+          transform: translate(0%, -50%);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translate(0%, 0%);
+        }
+      }
+
+      .web__address {
+        right: 0%;
+        top: 50%;
+        transform: translateY(-50%) rotate(-90deg);
+        color: white;
+        font-weight: 100;
+        letter-spacing: 0.5px;
+      }
+
+      .top {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+        animation: appear 0.5s ease-in-out calc(var(--delay)) forwards;
+      }
+
+      @keyframes appear {
+        0% {
+          clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+        }
+
+        100% {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+      }
+
+      .bottom {
+        clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+        color: rgba(255, 255, 255, 0.4);
+        animation: gone 0.5s ease-in-out calc(var(--delay)) forwards;
+      }
+
+      @keyframes gone {
+        0% {
+          clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+        }
+
+        100% {
+          clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parentDiv">
+      <div class="wrapper">
+        <div class="first__image img__section"></div>
+
+        <div class="second__image img__section"></div>
+        <div class="room__type">
+          <div class="icon__wrapper">
+            <i class="bedroom fa-solid fa-bed"></i>
+          </div>
+          <h3>Bedroom</h3>
+        </div>
+
+        <div class="details">
+          <h3>Details:</h3>
+          <h4>Living Area: 2032 Sq. Ft</h4>
+          <ul>
+            <li>Lorem ipsum dolor sit.</li>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+            <li>Lorem, ipsum dolor.</li>
+            <li>Lorem, ipsum dolor.</li>
+            <li>Lorem, ipsum dolor.</li>
+          </ul>
+        </div>
+
+        <div class="personal__agent">
+          <div class="pic__sec">
+            <img
+              class="agent__pic img-responsive"
+              src="V_AGENTS_587x900_Viper.png"
+              alt=""
+            />
+          </div>
+          <div class="agent__info">
+            <h4>Controller</h4>
+            <h3>Viper</h3>
+            <h3>653-987-9932</h3>
+          </div>
+        </div>
+
+        <div class="price__address">
+          <h3 class="price">$949,000</h3>
+          <h3 class="address">488 Vine St #297, Los Angeles, CA</h3>
+        </div>
+
+        <h4 class="web__address bottom">www.roronoasazzed.com</h4>
+        <h4 class="web__address top">www.roronoasazzed.com</h4>
+      </div>
+    </div>
+  </body>
+</html>
